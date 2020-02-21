@@ -7,7 +7,6 @@
 <% end %>
 
 <%= render partial: 'spree/admin/shared/flash_messages' %>
-
 <% content_for :table_filter do %>
   <div data-hook="admin_subscriptions_index_search">
     <%= search_form_for [:admin, @search] do |f| %>
@@ -27,7 +26,7 @@
 <% end %>
 
 <% if @subscriptions.present? %>
-  <table class="table sortable" id='listing_subscription' data-hook>
+    <table class="table sortable" id='listing_subscription' data-hook>
     <thead>
       <tr data-hook="admin_subscriptions_index_headers">
         <th><%= Spree.t(:number) %></th>
@@ -36,8 +35,7 @@
         <th class="text-center"><%= Spree.t(:recurring_delivery_interval) %></th>
         <th class="text-center"><%= Spree.t(:total_deliveries) %></th>
         <th class="text-center"><%= Spree.t(:deliveries_left) %></th>
-        <th class="text-center"><%= Spree.t(:next_occurrence_possible) %></th>
-        <th data-hook="admin_subscriptions_index_header_actions" class="actions"><%= Spree.t(:action_links)%></th>
+        <th data-hook="admin_subscriptions_index_header_actions" class="actions"><%= Spree.t(:status)%></th>
       </tr>
     </thead>
     <tbody>
