@@ -11,7 +11,7 @@ module Spree
     def update
       if @subscription.update(subscription_attributes)
         respond_to do |format|
-          format.html { redirect_to edit_subscription_path(@subscription), success: t('.success') }
+          format.html { redirect_to spree.edit_subscription_path(@subscription), success: t('.success') }
           format.json { render json: { subscription: { price: @subscription.price, id: @subscription.id } }, status: 200 }
         end
       else
@@ -31,45 +31,57 @@ module Spree
               method: Spree::Subscription::ACTION_REPRESENTATIONS[:cancel].upcase
             }, status: 200
           }
-          format.html { redirect_to edit_subscription_path(@subscription), success: t(".success") }
+          format.html { redirect_to spree.edit_subscription_path(@subscription), success: t(".success") }
         else
           format.json { render json: {
               flash: t(".error")
             }, status: 422
           }
-          format.html { redirect_to edit_subscription_path(@subscription), error: t(".error") }
+          format.html { redirect_to spree.edit_subscription_path(@subscription), error: t(".error") }
         end
       end
     end
 
     def pause
-      if @subscription.pause
-        render json: {
-          flash: t('.success'),
-          url: unpause_subscription_path(@subscription),
-          button_text: Spree::Subscription::ACTION_REPRESENTATIONS[:unpause],
-          confirmation: Spree.t("subscriptions.confirm.activate")
-        }, status: 200
-      else
-        render json: {
-          flash: t('.error')
-        }, status: 422
+      respond_to do |format|
+        if @subscription.pause
+          format.json { render json: {
+              flash: t('.success'),
+              url: spree.unpause_subscription_path(@subscription),
+              button_text: Spree::Subscription::ACTION_REPRESENTATIONS[:unpause],
+              confirmation: Spree.t("subscriptions.confirm.activate")
+            }, status: 200
+          }
+          format.html { redirect_to spree.edit_subscription_path(@subscription), success: t(".success") }
+        else
+          format.json {render json: {
+              flash: t('.error')
+            }, status: 422
+          }
+          format.html { redirect_to spree.edit_subscription_path(@subscription), error: t(".error") }
+        end
       end
     end
 
     def unpause
-      if @subscription.unpause
-        render json: {
-          flash: t('.success', next_occurrence_at: @subscription.next_occurrence_at.to_date.to_formatted_s(:rfc822)),
-          url: pause_subscription_path(@subscription),
-          button_text: Spree::Subscription::ACTION_REPRESENTATIONS[:pause],
-          next_occurrence_at: @subscription.next_occurrence_at.to_date,
-          confirmation: Spree.t("subscriptions.confirm.pause")
-        }, status: 200
-      else
-        render json: {
-          flash: t('.error')
-        }, status: 422
+      respond_to do |format|
+        if @subscription.unpause
+          format.json { render json: {
+              flash: t('.success', next_occurrence_at: @subscription.next_occurrence_at.to_date.to_formatted_s(:rfc822)),
+              url: spree.pause_subscription_path(@subscription),
+              button_text: Spree::Subscription::ACTION_REPRESENTATIONS[:pause],
+              next_occurrence_at: @subscription.next_occurrence_at.to_date,
+              confirmation: Spree.t("subscriptions.confirm.pause")
+            }, status: 200
+          }
+          format.html { redirect_to spree.edit_subscription_path(@subscription), success: t(".success") }
+        else
+          format.json {render json: {
+              flash: t('.error')
+            }, status: 422
+          }
+          format.html { redirect_to spree.edit_subscription_path(@subscription), error: t(".error") }
+        end
       end
     end
 

@@ -1,36 +1,77 @@
-# encoding: UTF-8
+# -*- encoding: utf-8 -*-
+# stub: spree_product_subscriptions 3.2.0 ruby lib
+
 Gem::Specification.new do |s|
-  s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_product_subscriptions'
-  s.version     = '3.2.0'
-  s.summary     = 'Add gem summary here'
-  s.description = 'Add (optional) gem description here'
-  s.required_ruby_version = '>= 2.1.0'
+  s.name = "spree_product_subscriptions".freeze
+  s.version = "3.2.0"
 
-  s.author    = 'Vinay'
-  s.email     = 'vinay@vinsol.com'
-  # s.homepage  = 'http://www.spreecommerce.com'
+  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["Vinay".freeze]
+  s.date = "2020-02-21"
+  s.description = "Add (optional) gem description here".freeze
+  s.email = "vinay@vinsol.com".freeze
+  s.required_ruby_version = Gem::Requirement.new(">= 2.1.0".freeze)
+  s.requirements = ["none".freeze]
+  s.rubygems_version = "2.7.10".freeze
+  s.summary = "Add gem summary here".freeze
 
-  #s.files       = `git ls-files`.split("\n")
-  #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.require_path = 'lib'
-  s.requirements << 'none'
+  s.installed_by_version = "2.7.10" if s.respond_to? :installed_by_version
 
-  s.add_dependency 'spree_core', '>= 3.2.0'
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
 
-  s.add_development_dependency 'capybara', '~> 2.4'
-  s.add_development_dependency 'coffee-rails', '~> 4.2'
-  s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'factory_bot'
-  s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'pry-rails', '~> 0.3.4'
-  s.add_development_dependency 'rspec-rails',  '~> 3.4'
-  s.add_development_dependency 'rspec-activemodel-mocks', '~> 1.0.3'
-  s.add_development_dependency 'sass-rails', '~> 5.0.1'
-  s.add_development_dependency 'selenium-webdriver', '~> 2.52.0'
-  s.add_development_dependency 'shoulda-matchers', '~> 3.1.1'
-  s.add_development_dependency 'shoulda-callback-matchers', '~> 1.1.3'
-  s.add_development_dependency 'simplecov', '~> 0.11.2'
-  s.add_development_dependency 'sqlite3', '~> 1.3.11'
-  s.add_development_dependency 'appraisal'
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<spree_core>.freeze, [">= 3.2.0"])
+      s.add_development_dependency(%q<capybara>.freeze, ["~> 2.4"])
+      s.add_development_dependency(%q<coffee-rails>.freeze, ["~> 4.2"])
+      s.add_development_dependency(%q<database_cleaner>.freeze, [">= 0"])
+      s.add_development_dependency(%q<factory_bot>.freeze, [">= 0"])
+      s.add_development_dependency(%q<ffaker>.freeze, [">= 0"])
+      s.add_development_dependency(%q<pry-rails>.freeze, ["~> 0.3.4"])
+      s.add_development_dependency(%q<rspec-rails>.freeze, ["~> 3.4"])
+      s.add_development_dependency(%q<rspec-activemodel-mocks>.freeze, ["~> 1.0.3"])
+      s.add_development_dependency(%q<sass-rails>.freeze, ["~> 5.0.1"])
+      s.add_development_dependency(%q<selenium-webdriver>.freeze, ["~> 2.52.0"])
+      s.add_development_dependency(%q<shoulda-matchers>.freeze, ["~> 3.1.1"])
+      s.add_development_dependency(%q<shoulda-callback-matchers>.freeze, ["~> 1.1.3"])
+      s.add_development_dependency(%q<simplecov>.freeze, ["~> 0.11.2"])
+      s.add_development_dependency(%q<sqlite3>.freeze, ["~> 1.3.11"])
+      s.add_development_dependency(%q<appraisal>.freeze, [">= 0"])
+    else
+      s.add_dependency(%q<spree_core>.freeze, [">= 3.2.0"])
+      s.add_dependency(%q<capybara>.freeze, ["~> 2.4"])
+      s.add_dependency(%q<coffee-rails>.freeze, ["~> 4.2"])
+      s.add_dependency(%q<database_cleaner>.freeze, [">= 0"])
+      s.add_dependency(%q<factory_bot>.freeze, [">= 0"])
+      s.add_dependency(%q<ffaker>.freeze, [">= 0"])
+      s.add_dependency(%q<pry-rails>.freeze, ["~> 0.3.4"])
+      s.add_dependency(%q<rspec-rails>.freeze, ["~> 3.4"])
+      s.add_dependency(%q<rspec-activemodel-mocks>.freeze, ["~> 1.0.3"])
+      s.add_dependency(%q<sass-rails>.freeze, ["~> 5.0.1"])
+      s.add_dependency(%q<selenium-webdriver>.freeze, ["~> 2.52.0"])
+      s.add_dependency(%q<shoulda-matchers>.freeze, ["~> 3.1.1"])
+      s.add_dependency(%q<shoulda-callback-matchers>.freeze, ["~> 1.1.3"])
+      s.add_dependency(%q<simplecov>.freeze, ["~> 0.11.2"])
+      s.add_dependency(%q<sqlite3>.freeze, ["~> 1.3.11"])
+      s.add_dependency(%q<appraisal>.freeze, [">= 0"])
+    end
+  else
+    s.add_dependency(%q<spree_core>.freeze, [">= 3.2.0"])
+    s.add_dependency(%q<capybara>.freeze, ["~> 2.4"])
+    s.add_dependency(%q<coffee-rails>.freeze, ["~> 4.2"])
+    s.add_dependency(%q<database_cleaner>.freeze, [">= 0"])
+    s.add_dependency(%q<factory_bot>.freeze, [">= 0"])
+    s.add_dependency(%q<ffaker>.freeze, [">= 0"])
+    s.add_dependency(%q<pry-rails>.freeze, ["~> 0.3.4"])
+    s.add_dependency(%q<rspec-rails>.freeze, ["~> 3.4"])
+    s.add_dependency(%q<rspec-activemodel-mocks>.freeze, ["~> 1.0.3"])
+    s.add_dependency(%q<sass-rails>.freeze, ["~> 5.0.1"])
+    s.add_dependency(%q<selenium-webdriver>.freeze, ["~> 2.52.0"])
+    s.add_dependency(%q<shoulda-matchers>.freeze, ["~> 3.1.1"])
+    s.add_dependency(%q<shoulda-callback-matchers>.freeze, ["~> 1.1.3"])
+    s.add_dependency(%q<simplecov>.freeze, ["~> 0.11.2"])
+    s.add_dependency(%q<sqlite3>.freeze, ["~> 1.3.11"])
+    s.add_dependency(%q<appraisal>.freeze, [">= 0"])
+  end
 end
