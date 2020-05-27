@@ -38,7 +38,12 @@ Spree::Order.class_eval do
     def update_subscriptions
       line_items.each do |line_item|
         if line_item.subscription_attributes_present?
-          subscriptions.find_by(variant: line_item.variant).update(line_item.updatable_subscription_attributes)
+          begin
+            subscriptions.find_by(variant: line_item.variant).update(line_item.updatable_subscription_attributes)
+          rescue NoMethodError => exception
+            Bugsnag.notify(exception)
+          end
+          
         end
       end
     end
